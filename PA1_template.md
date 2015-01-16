@@ -7,7 +7,8 @@ output:
 ## Loading and preprocessing the data
 First, load and process the data with group_by from package dplyr.
 The totals are calculated using na.rm=TRUE, in order to make meaningful plots 
-later
+later.
+We're also grouping by date
 
 ```r
 library(dplyr)
@@ -60,7 +61,7 @@ median(totaldf$totals)
 
 
 ## What is the average daily activity pattern?
-
+We group by interval now
 
 ```r
 byinterval<-group_by(indata,interval)
@@ -81,7 +82,7 @@ int_df[which.max(int_df$averages),1]
 ## 1      835
 ```
 
-The last line gives the peak activity time
+The last line gives the peak activity time (interval)
 
 ## Imputing missing values
 ### Replace NAs with the closest integer of the mean corresponding to this interval

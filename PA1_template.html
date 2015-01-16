@@ -183,7 +183,8 @@ hljs.initHighlightingOnLoad();
 
 <p>First, load and process the data with group_by from package dplyr.
 The totals are calculated using na.rm=TRUE, in order to make meaningful plots 
-later</p>
+later.
+We&#39;re also grouping by date</p>
 
 <pre><code class="r">library(dplyr)
 </code></pre>
@@ -229,6 +230,8 @@ totaldf&lt;-summarise(bydate,totals=sum(steps,na.rm=TRUE))
 
 <h2>What is the average daily activity pattern?</h2>
 
+<p>We group by interval now</p>
+
 <pre><code class="r">byinterval&lt;-group_by(indata,interval)
 int_df&lt;-summarise(byinterval,averages=mean(steps,na.rm=TRUE))
 plot(int_df$interval,int_df$averages,type=&quot;l&quot;,xlab=&quot;Interval (minutes)&quot;,ylab=&quot;Avg. steps&quot;)
@@ -245,7 +248,7 @@ plot(int_df$interval,int_df$averages,type=&quot;l&quot;,xlab=&quot;Interval (min
 ## 1      835
 </code></pre>
 
-<p>The last line gives the peak activity time</p>
+<p>The last line gives the peak activity time (interval)</p>
 
 <h2>Imputing missing values</h2>
 
